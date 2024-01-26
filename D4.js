@@ -56,7 +56,7 @@ function boundary(n) {
   } else if (n >= 20 && n <= 100) {
     return console.log("il numero fornito è compreso tra 20 e 100");
   } else {
-    return console.log("il numero fornito è inferiore a 20");
+    return console.log("il numero fornito è inferiore a 20 o superiore a 100");
   }
 }
 boundary(2);
@@ -70,13 +70,14 @@ boundary(2);
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 function epify(string = "") {
-  if (string === "EPICODE") {
-    return string;
+  let string2 = string;
+  if (string2.startsWith("EPICODE")) {
+    return string2;
   } else {
-    return (string = "EPICODE " + string);
+    return (string2 = "EPICODE " + string2);
   }
 }
-console.log("esercizio 5 ", epify("EPICODE"));
+console.log("esercizio 5 ", epify("eEPICODE ciao"));
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* ESERCIZIO 6
  Scrivi una funzione di nome "check3and7" che accetta un numero positivo come parametro. La funzione deve controllare che il parametro sia un multiplo
@@ -97,6 +98,7 @@ function check3and7(int) {
   }
 }
 console.log("esercizio 6 ", check3and7(7));
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* ESERCIZIO 7
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
@@ -117,12 +119,14 @@ console.log("esercizio 7 ", reverseString("ciao"));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-function upperFirst(string = "") {
+function upperFirst(string) {
   let words = string.split(" ");
   let words2 = [];
+  let lastletters;
 
   for (let index = 0; index < words.length; index++) {
-    words2.push(words[index].charAt(0).toUpperCase() + words[index].slice(1));
+    lastletters = words[index].slice(1);
+    words2.push(words[index].charAt(0).toUpperCase() + lastletters);
   }
   return words2;
 }
@@ -164,3 +168,4 @@ function giveMeRandom(numero) {
   );
 }
 giveMeRandom(5);
+
